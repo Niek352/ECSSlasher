@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewData: {fileID: 11400000, guid: 2cd55f18f7c3b8e42a47863b183ba3e9, type: 2}
   _playerData: {fileID: 11400000, guid: 6389b8d9e148442438fa98b35a6b3b07, type: 2}
+  _bulletData: {fileID: 11400000, guid: 2006dfa4343a5bc4086c9eb510bdf0d9, type: 2}

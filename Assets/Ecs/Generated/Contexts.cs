@@ -57,15 +57,15 @@ public partial class Contexts : JCMG.EntitasRedux.IContexts
 	static Contexts _sharedInstance;
 	#endif
 
+	public ActionContext Action { get; set; }
 	public GameContext Game { get; set; }
-	public InputContext Input { get; set; }
 
-	public JCMG.EntitasRedux.IContext[] AllContexts { get { return new JCMG.EntitasRedux.IContext [] { Game, Input }; } }
+	public JCMG.EntitasRedux.IContext[] AllContexts { get { return new JCMG.EntitasRedux.IContext [] { Action, Game }; } }
 
 	public Contexts()
 	{
+		Action = new ActionContext();
 		Game = new GameContext();
-		Input = new InputContext();
 
 		var postConstructors = System.Linq.Enumerable.Where(
 			GetType().GetMethods(),
@@ -104,8 +104,8 @@ public partial class Contexts {
 	[JCMG.EntitasRedux.PostConstructor]
 	public void InitializeContextObservers() {
 		try {
+			CreateContextObserver(Action);
 			CreateContextObserver(Game);
-			CreateContextObserver(Input);
 		} catch(System.Exception) {
 		}
 	}

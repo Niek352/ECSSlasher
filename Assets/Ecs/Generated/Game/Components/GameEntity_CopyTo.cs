@@ -18,7 +18,15 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
+		if (component is Ecs.Game.Components.LifeTimeComponent LifeTime)
+		{
+			CopyLifeTimeTo(LifeTime);
+		}
+		else if (component is Ecs.Game.Components.BulletComponent Bullet)
+		{
+			IsBullet = true;
+		}
+		else if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
 		{
 			CopyCharacterControllerTo(CharacterController);
 		}

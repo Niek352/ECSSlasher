@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using Ecs.Game.Systems.Initialize;
+using Ecs.Action.Systems;
 using Ecs.Game.Systems.Player;
+using Ecs.Game.Systems;
 using Ecs.Game.Core.Systems;
 using VContainer;
 
@@ -18,8 +20,10 @@ using VContainer;
 		public static void InstallSystems(IContainerBuilder container)
 		{
 			container.Register<GameInitializeSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<CreateBulletSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<PlayerLookService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<PlayerMoveService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<BulletRayCastSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<ViewInstantiateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 		}
 	}

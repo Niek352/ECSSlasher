@@ -15,3 +15,5 @@ MonoBehaviour:
   _views:
   - name: Player
     view: {fileID: 3856387004615536104, guid: a701406935f9d7c43998727fba7e83ae, type: 3}
+  - name: Bullet
+    view: {fileID: 1059044757737291118, guid: b2dcbd8f531528741ba84cc76cc9bc13, type: 3}

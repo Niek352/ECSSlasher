@@ -13,28 +13,32 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int CharacterController = 0;
-	public const int Player = 1;
-	public const int Instantiate = 2;
-	public const int Link = 3;
-	public const int LocalPosition = 4;
-	public const int LookDirection = 5;
-	public const int Position = 6;
-	public const int Prefab = 7;
-	public const int Rotation = 8;
-	public const int Transform = 9;
-	public const int Velocity = 10;
-	public const int LinkRemovedListener = 11;
-	public const int LocalPositionAddedListener = 12;
-	public const int PositionAddedListener = 13;
-	public const int RotationAddedListener = 14;
-	public const int VelocityAddedListener = 15;
+	public const int Bullet = 0;
+	public const int CharacterController = 1;
+	public const int LifeTime = 2;
+	public const int Player = 3;
+	public const int Instantiate = 4;
+	public const int Link = 5;
+	public const int LocalPosition = 6;
+	public const int LookDirection = 7;
+	public const int Position = 8;
+	public const int Prefab = 9;
+	public const int Rotation = 10;
+	public const int Transform = 11;
+	public const int Velocity = 12;
+	public const int LinkRemovedListener = 13;
+	public const int LocalPositionAddedListener = 14;
+	public const int PositionAddedListener = 15;
+	public const int RotationAddedListener = 16;
+	public const int VelocityAddedListener = 17;
 
-	public const int TotalComponents = 16;
+	public const int TotalComponents = 18;
 
 	public static readonly string[] ComponentNames =
 	{
+		"Bullet",
 		"CharacterController",
+		"LifeTime",
 		"Player",
 		"Instantiate",
 		"Link",
@@ -54,7 +58,9 @@ public static class GameComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(Ecs.Game.Components.BulletComponent),
 		typeof(Ecs.Game.Components.CharacterControllerComponent),
+		typeof(Ecs.Game.Components.LifeTimeComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Core.Components.InstantiateComponent),
 		typeof(Ecs.Game.Core.Components.LinkComponent),
@@ -74,22 +80,24 @@ public static class GameComponentsLookup
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 0 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 1 },
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 2 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 3 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 4 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 5 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 6 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 7 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 8 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 9 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 10 },
-		{ typeof(LinkRemovedListenerComponent), 11 },
-		{ typeof(LocalPositionAddedListenerComponent), 12 },
-		{ typeof(PositionAddedListenerComponent), 13 },
-		{ typeof(RotationAddedListenerComponent), 14 },
-		{ typeof(VelocityAddedListenerComponent), 15 }
+		{ typeof(Ecs.Game.Components.BulletComponent), 0 },
+		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 1 },
+		{ typeof(Ecs.Game.Components.LifeTimeComponent), 2 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 3 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 4 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 5 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 6 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 7 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 8 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 9 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 10 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 11 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 12 },
+		{ typeof(LinkRemovedListenerComponent), 13 },
+		{ typeof(LocalPositionAddedListenerComponent), 14 },
+		{ typeof(PositionAddedListenerComponent), 15 },
+		{ typeof(RotationAddedListenerComponent), 16 },
+		{ typeof(VelocityAddedListenerComponent), 17 }
 	};
 
 	/// <summary>

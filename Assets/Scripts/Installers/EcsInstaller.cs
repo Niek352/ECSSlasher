@@ -15,7 +15,7 @@ namespace Installers
 		{
 			_contexts = Contexts.SharedInstance;
 			RegisterContext<GameContext>(builder);
-			//BindContext<ActionContext>();
+			RegisterContext<ActionContext>(builder);
 			
 			InstallSystems(builder);
 			
