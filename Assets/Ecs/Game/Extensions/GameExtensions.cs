@@ -9,6 +9,7 @@ namespace Ecs.Game.Extensions
             Vector3 spawnPosition)
         {
             var gamePlayer = gameContext.CreateEntity();
+            gamePlayer.IsPlayer = true;
             gamePlayer.AddPrefab("Player");
             gamePlayer.AddVelocity(Vector3.zero);
             gamePlayer.AddPosition(spawnPosition);

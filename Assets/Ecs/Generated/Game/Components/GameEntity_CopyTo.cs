@@ -18,13 +18,13 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Core.Components.InstantiateComponent Instantiate)
+		if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
 		{
-			IsInstantiate = true;
+			CopyCharacterControllerTo(CharacterController);
 		}
-		else if (component is Ecs.Game.Core.Components.PrefabComponent Prefab)
+		else if (component is Ecs.Game.Components.PlayerComponent Player)
 		{
-			CopyPrefabTo(Prefab);
+			IsPlayer = true;
 		}
 		else if (component is Ecs.Game.Core.Components.PositionComponent Position)
 		{
@@ -46,6 +46,10 @@ public partial class GameEntity
 		{
 			CopyLookDirectionTo(LookDirection);
 		}
+		else if (component is Ecs.Game.Core.Components.PrefabComponent Prefab)
+		{
+			CopyPrefabTo(Prefab);
+		}
 		else if (component is Ecs.Game.Core.Components.LocalPositionComponent LocalPosition)
 		{
 			CopyLocalPositionTo(LocalPosition);
@@ -53,6 +57,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Core.Components.LinkComponent Link)
 		{
 			CopyLinkTo(Link);
+		}
+		else if (component is Ecs.Game.Core.Components.InstantiateComponent Instantiate)
+		{
+			IsInstantiate = true;
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{

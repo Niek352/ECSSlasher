@@ -34,8 +34,6 @@ namespace Ecs.Game.Core.Systems
 			foreach (var entity in entities)
 			{
 				var linkable = _viewFactory.Create(entity);
-				if (linkable == null)
-					continue;
 
 				linkable.Link(entity, _game);
 				entity.ReplaceLink(linkable);

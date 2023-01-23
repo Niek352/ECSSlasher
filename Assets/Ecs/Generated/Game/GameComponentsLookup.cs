@@ -13,25 +13,29 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int Instantiate = 0;
-	public const int Link = 1;
-	public const int LocalPosition = 2;
-	public const int LookDirection = 3;
-	public const int Position = 4;
-	public const int Prefab = 5;
-	public const int Rotation = 6;
-	public const int Transform = 7;
-	public const int Velocity = 8;
-	public const int LinkRemovedListener = 9;
-	public const int LocalPositionAddedListener = 10;
-	public const int PositionAddedListener = 11;
-	public const int RotationAddedListener = 12;
-	public const int VelocityAddedListener = 13;
+	public const int CharacterController = 0;
+	public const int Player = 1;
+	public const int Instantiate = 2;
+	public const int Link = 3;
+	public const int LocalPosition = 4;
+	public const int LookDirection = 5;
+	public const int Position = 6;
+	public const int Prefab = 7;
+	public const int Rotation = 8;
+	public const int Transform = 9;
+	public const int Velocity = 10;
+	public const int LinkRemovedListener = 11;
+	public const int LocalPositionAddedListener = 12;
+	public const int PositionAddedListener = 13;
+	public const int RotationAddedListener = 14;
+	public const int VelocityAddedListener = 15;
 
-	public const int TotalComponents = 14;
+	public const int TotalComponents = 16;
 
 	public static readonly string[] ComponentNames =
 	{
+		"CharacterController",
+		"Player",
 		"Instantiate",
 		"Link",
 		"LocalPosition",
@@ -50,6 +54,8 @@ public static class GameComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(Ecs.Game.Components.CharacterControllerComponent),
+		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Core.Components.InstantiateComponent),
 		typeof(Ecs.Game.Core.Components.LinkComponent),
 		typeof(Ecs.Game.Core.Components.LocalPositionComponent),
@@ -68,20 +74,22 @@ public static class GameComponentsLookup
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 0 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 1 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 2 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 3 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 4 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 5 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 6 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 7 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 8 },
-		{ typeof(LinkRemovedListenerComponent), 9 },
-		{ typeof(LocalPositionAddedListenerComponent), 10 },
-		{ typeof(PositionAddedListenerComponent), 11 },
-		{ typeof(RotationAddedListenerComponent), 12 },
-		{ typeof(VelocityAddedListenerComponent), 13 }
+		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 0 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 1 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 2 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 3 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 4 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 5 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 6 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 7 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 8 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 9 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 10 },
+		{ typeof(LinkRemovedListenerComponent), 11 },
+		{ typeof(LocalPositionAddedListenerComponent), 12 },
+		{ typeof(PositionAddedListenerComponent), 13 },
+		{ typeof(RotationAddedListenerComponent), 14 },
+		{ typeof(VelocityAddedListenerComponent), 15 }
 	};
 
 	/// <summary>

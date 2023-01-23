@@ -26,11 +26,11 @@ namespace Ecs.Factories.View.Impl
 			if (!entity.HasPrefab)
 				throw new ArgumentOutOfRangeException(nameof(entity), entity, "entity hasn't prefab component, it cannot be spawned");
 
-			var view = _viewData.Get(entity.Prefab.PrefabName);
+			var viewPrefab = _viewData.Get(entity.Prefab.PrefabName);
 			var position = entity.HasPosition ? entity.Position.Value : Vector3.zero;
-			_resolver.Instantiate(view, position, Quaternion.identity);
+			var obj = _resolver.Instantiate(viewPrefab, position, Quaternion.identity);
 			
-			return view;
+			return obj;
 		}
 	}
 }

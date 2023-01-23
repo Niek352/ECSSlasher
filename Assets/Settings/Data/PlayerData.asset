@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4973bd855456402ab6f03bdf4b7e8e35, type: 3}
-  m_Name: GameScriptableInstaller
+  m_Script: {fileID: 11500000, guid: b52ab375e8d948409110ae4d21cd97dd, type: 3}
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _viewData: {fileID: 11400000, guid: 2cd55f18f7c3b8e42a47863b183ba3e9, type: 2}
-  _playerData: {fileID: 11400000, guid: 6389b8d9e148442438fa98b35a6b3b07, type: 2}
+  _moveSpeed: 10
+  _rotationSpeed: 2
