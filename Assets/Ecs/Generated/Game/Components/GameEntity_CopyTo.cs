@@ -18,13 +18,13 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Core.Components.CameraComponent Camera)
-		{
-			IsCamera = true;
-		}
-		else if (component is Ecs.Game.Core.Components.PositionComponent Position)
+		if (component is Ecs.Game.Core.Components.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is Ecs.Game.Core.Components.CameraComponent Camera)
+		{
+			IsCamera = true;
 		}
 		else if (component is Ecs.Game.Core.Components.TransformComponent Transform)
 		{
@@ -57,6 +57,50 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Core.Components.InstantiateComponent Instantiate)
 		{
 			IsInstantiate = true;
+		}
+		else if (component is Ecs.Game.Components.TargetComponent Target)
+		{
+			CopyTargetTo(Target);
+		}
+		else if (component is Ecs.Game.Components.StateMachineComponent StateMachine)
+		{
+			CopyStateMachineTo(StateMachine);
+		}
+		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
+		{
+			IsEnemy = true;
+		}
+		else if (component is Ecs.Game.Components.DefenceComponent Defence)
+		{
+			CopyDefenceTo(Defence);
+		}
+		else if (component is Ecs.Game.Components.HealthComponent Health)
+		{
+			CopyHealthTo(Health);
+		}
+		else if (component is Ecs.Game.Components.MaxAttackCooldownComponent MaxAttackCooldown)
+		{
+			CopyMaxAttackCooldownTo(MaxAttackCooldown);
+		}
+		else if (component is Ecs.Game.Components.CurrentAttackCooldownComponent CurrentAttackCooldown)
+		{
+			CopyCurrentAttackCooldownTo(CurrentAttackCooldown);
+		}
+		else if (component is Ecs.Game.Components.DamageComponent Damage)
+		{
+			CopyDamageTo(Damage);
+		}
+		else if (component is Ecs.Game.Components.MoveSpeedComponent MoveSpeed)
+		{
+			CopyMoveSpeedTo(MoveSpeed);
+		}
+		else if (component is Ecs.Game.Components.AttackRangeComponent AttackRange)
+		{
+			CopyAttackRangeTo(AttackRange);
+		}
+		else if (component is Ecs.Game.Components.EnemyModelComponent EnemyModel)
+		{
+			CopyEnemyModelTo(EnemyModel);
 		}
 		else if (component is Ecs.Game.Components.BulletComponent Bullet)
 		{

@@ -1,3 +1,5 @@
+using Model;
+using Model.Enemy;
 using UnityEngine;
 
 namespace Ecs.Game.Extensions
@@ -54,5 +56,26 @@ namespace Ecs.Game.Extensions
             return entity;
         }
 
+        public static GameEntity CreateEnemy(this GameContext game,
+            EnemyModel enemyModel, 
+            Vector3 position
+            )
+        {
+            var entity = game.CreateEntity();
+            entity.IsEnemy = true;
+            entity.AddPrefab("Enemy");
+            entity.AddEnemyModel(enemyModel);
+            entity.AddPosition(position);
+            entity.AddRotation(Quaternion.identity);
+            
+            entity.AddMoveSpeed(enemyModel.MoveSpeed);
+            entity.AddDamage(enemyModel.Damage);
+            entity.AddCurrentAttackCooldown(0);
+            entity.AddMaxAttackCooldown(enemyModel.AttackCooldown);
+            entity.AddAttackRange(enemyModel.AttackRange);
+            
+            entity.IsInstantiate = true;
+            return entity;
+        }
     }
 }

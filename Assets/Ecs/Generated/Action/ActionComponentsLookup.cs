@@ -14,22 +14,26 @@ using JCMG.EntitasRedux;
 public static class ActionComponentsLookup
 {
 	public const int CreateBullet = 0;
+	public const int ProcessAttack = 1;
 
-	public const int TotalComponents = 1;
+	public const int TotalComponents = 2;
 
 	public static readonly string[] ComponentNames =
 	{
-		"CreateBullet"
+		"CreateBullet",
+		"ProcessAttack"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-		typeof(Ecs.Action.Components.CreateBulletComponent)
+		typeof(Ecs.Action.Components.CreateBulletComponent),
+		typeof(Ecs.Action.Components.ProcessAttackComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Action.Components.CreateBulletComponent), 0 }
+		{ typeof(Ecs.Action.Components.CreateBulletComponent), 0 },
+		{ typeof(Ecs.Action.Components.ProcessAttackComponent), 1 }
 	};
 
 	/// <summary>

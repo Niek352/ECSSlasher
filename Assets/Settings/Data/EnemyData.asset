@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b740f39d91904fa7a81837f1124b773a, type: 3}
+  m_Name: EnemyData
+  m_EditorClassIdentifier: 
+  _enemyModels:
+  - <Id>k__BackingField: Warrior
+    <Health>k__BackingField: 100
+    <Defence>k__BackingField: 0.2
+    <MoveSpeed>k__BackingField: 5
+    <Damage>k__BackingField: 15
+    <AttackCooldown>k__BackingField: 0.2
+    EnemyType: 0
+    EnemyAttackType: 0
+    EnemyMovementType: 0
+    AttackRange: 1.2
+    EnemyStateMachineBuilder: {fileID: 11400000, guid: 70be53ee41b90fd4ca837762cd591dd2, type: 2}

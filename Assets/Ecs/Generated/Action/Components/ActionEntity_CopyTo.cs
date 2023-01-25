@@ -18,7 +18,11 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Action.Components.CreateBulletComponent CreateBullet)
+		if (component is Ecs.Action.Components.ProcessAttackComponent ProcessAttack)
+		{
+			CopyProcessAttackTo(ProcessAttack);
+		}
+		else if (component is Ecs.Action.Components.CreateBulletComponent CreateBullet)
 		{
 			CopyCreateBulletTo(CreateBullet);
 		}

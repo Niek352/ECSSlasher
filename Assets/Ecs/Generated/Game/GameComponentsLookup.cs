@@ -13,34 +13,56 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int Bullet = 0;
-	public const int CharacterController = 1;
-	public const int LifeTime = 2;
-	public const int Player = 3;
-	public const int Camera = 4;
-	public const int Instantiate = 5;
-	public const int Link = 6;
-	public const int LocalPosition = 7;
-	public const int LookDirection = 8;
-	public const int Position = 9;
-	public const int Prefab = 10;
-	public const int Rotation = 11;
-	public const int Transform = 12;
-	public const int Velocity = 13;
-	public const int LinkRemovedListener = 14;
-	public const int LocalPositionAddedListener = 15;
-	public const int PositionAddedListener = 16;
-	public const int RotationAddedListener = 17;
-	public const int VelocityAddedListener = 18;
+	public const int AttackRange = 0;
+	public const int Bullet = 1;
+	public const int CharacterController = 2;
+	public const int CurrentAttackCooldown = 3;
+	public const int Damage = 4;
+	public const int Defence = 5;
+	public const int Enemy = 6;
+	public const int EnemyModel = 7;
+	public const int Health = 8;
+	public const int LifeTime = 9;
+	public const int MaxAttackCooldown = 10;
+	public const int MoveSpeed = 11;
+	public const int Player = 12;
+	public const int StateMachine = 13;
+	public const int Target = 14;
+	public const int Camera = 15;
+	public const int Instantiate = 16;
+	public const int Link = 17;
+	public const int LocalPosition = 18;
+	public const int LookDirection = 19;
+	public const int Position = 20;
+	public const int Prefab = 21;
+	public const int Rotation = 22;
+	public const int Transform = 23;
+	public const int Velocity = 24;
+	public const int LinkRemovedListener = 25;
+	public const int LocalPositionAddedListener = 26;
+	public const int PositionAddedListener = 27;
+	public const int RotationAddedListener = 28;
+	public const int VelocityAddedListener = 29;
 
-	public const int TotalComponents = 19;
+	public const int TotalComponents = 30;
 
 	public static readonly string[] ComponentNames =
 	{
+		"AttackRange",
 		"Bullet",
 		"CharacterController",
+		"CurrentAttackCooldown",
+		"Damage",
+		"Defence",
+		"Enemy",
+		"EnemyModel",
+		"Health",
 		"LifeTime",
+		"MaxAttackCooldown",
+		"MoveSpeed",
 		"Player",
+		"StateMachine",
+		"Target",
 		"Camera",
 		"Instantiate",
 		"Link",
@@ -60,10 +82,21 @@ public static class GameComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(Ecs.Game.Components.AttackRangeComponent),
 		typeof(Ecs.Game.Components.BulletComponent),
 		typeof(Ecs.Game.Components.CharacterControllerComponent),
+		typeof(Ecs.Game.Components.CurrentAttackCooldownComponent),
+		typeof(Ecs.Game.Components.DamageComponent),
+		typeof(Ecs.Game.Components.DefenceComponent),
+		typeof(Ecs.Game.Components.EnemyComponent),
+		typeof(Ecs.Game.Components.EnemyModelComponent),
+		typeof(Ecs.Game.Components.HealthComponent),
 		typeof(Ecs.Game.Components.LifeTimeComponent),
+		typeof(Ecs.Game.Components.MaxAttackCooldownComponent),
+		typeof(Ecs.Game.Components.MoveSpeedComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
+		typeof(Ecs.Game.Components.StateMachineComponent),
+		typeof(Ecs.Game.Components.TargetComponent),
 		typeof(Ecs.Game.Core.Components.CameraComponent),
 		typeof(Ecs.Game.Core.Components.InstantiateComponent),
 		typeof(Ecs.Game.Core.Components.LinkComponent),
@@ -83,25 +116,36 @@ public static class GameComponentsLookup
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Game.Components.BulletComponent), 0 },
-		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 1 },
-		{ typeof(Ecs.Game.Components.LifeTimeComponent), 2 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 3 },
-		{ typeof(Ecs.Game.Core.Components.CameraComponent), 4 },
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 5 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 6 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 7 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 8 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 9 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 10 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 11 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 12 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 13 },
-		{ typeof(LinkRemovedListenerComponent), 14 },
-		{ typeof(LocalPositionAddedListenerComponent), 15 },
-		{ typeof(PositionAddedListenerComponent), 16 },
-		{ typeof(RotationAddedListenerComponent), 17 },
-		{ typeof(VelocityAddedListenerComponent), 18 }
+		{ typeof(Ecs.Game.Components.AttackRangeComponent), 0 },
+		{ typeof(Ecs.Game.Components.BulletComponent), 1 },
+		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 2 },
+		{ typeof(Ecs.Game.Components.CurrentAttackCooldownComponent), 3 },
+		{ typeof(Ecs.Game.Components.DamageComponent), 4 },
+		{ typeof(Ecs.Game.Components.DefenceComponent), 5 },
+		{ typeof(Ecs.Game.Components.EnemyComponent), 6 },
+		{ typeof(Ecs.Game.Components.EnemyModelComponent), 7 },
+		{ typeof(Ecs.Game.Components.HealthComponent), 8 },
+		{ typeof(Ecs.Game.Components.LifeTimeComponent), 9 },
+		{ typeof(Ecs.Game.Components.MaxAttackCooldownComponent), 10 },
+		{ typeof(Ecs.Game.Components.MoveSpeedComponent), 11 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 12 },
+		{ typeof(Ecs.Game.Components.StateMachineComponent), 13 },
+		{ typeof(Ecs.Game.Components.TargetComponent), 14 },
+		{ typeof(Ecs.Game.Core.Components.CameraComponent), 15 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 16 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 17 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 18 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 19 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 20 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 21 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 22 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 23 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 24 },
+		{ typeof(LinkRemovedListenerComponent), 25 },
+		{ typeof(LocalPositionAddedListenerComponent), 26 },
+		{ typeof(PositionAddedListenerComponent), 27 },
+		{ typeof(RotationAddedListenerComponent), 28 },
+		{ typeof(VelocityAddedListenerComponent), 29 }
 	};
 
 	/// <summary>

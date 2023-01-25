@@ -8,6 +8,7 @@ namespace Ecs.Views.Linkable.Impl
 	{
 		[Inject] private readonly GameContext _game;
 		[Inject] private readonly ICameraProvider _cameraProvider;
+		
 		public override void Link(IEntity entity, IContext context)
 		{
 			base.Link(entity, context);
