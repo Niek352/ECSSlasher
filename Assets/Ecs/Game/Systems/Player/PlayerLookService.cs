@@ -1,32 +1,36 @@
 using ClassLibrary1;
 using ClassLibrary1.Enums;
 using JCMG.EntitasRedux;
+using Services.Camera;
 using Services.Input;
 using UnityEngine;
-using VContainer.Unity;
 
 namespace Ecs.Game.Systems.Player
 {
-	[Install(ExecutionType.Game, ExecutionPriority.High, 5, "Input")]
-	public class PlayerLookService : IUpdateSystem, IStartable
+	[Install(ExecutionType.Game, ExecutionPriority.Low, 25, "Input")]
+	public class PlayerLookService : IUpdateSystem
 	{
 		private readonly GameContext _game;
 		private readonly IInputProvider _input;
-		private  Camera _camera;
+		private readonly ICameraProvider _cameraProvider;
 		
 		public PlayerLookService(
 			GameContext game,
-			IInputProvider input
+			IInputProvider input,
+			ICameraProvider cameraProvider
 			)
 		{
 			_game = game;
 			_input = input;
+			_cameraProvider = cameraProvider;
 		}
 
 		public void Update()
 		{
+			if (!_cameraProvider.Camera)
+				return;
 			var playerEntity = _game.PlayerEntity;
-			var dir = new Vector3(_input.MousePosition.x, _input.MousePosition.y) - _camera.WorldToScreenPoint(playerEntity.Position.Value);
+			var dir = new Vector3(_input.MousePosition.x, _input.MousePosition.y) - _cameraProvider.Camera.WorldToScreenPoint(playerEntity.Position.Value);
 			var angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 			
 			var resultRotation = Quaternion.RotateTowards(
@@ -35,11 +39,6 @@ namespace Ecs.Game.Systems.Player
 				Time.deltaTime * (360f * 1));
 			
 			playerEntity.ReplaceRotation(resultRotation);
-		}
-		
-		public void Start()
-		{
-			_camera = Object.FindObjectOfType<Camera>();
 		}
 	}
 }

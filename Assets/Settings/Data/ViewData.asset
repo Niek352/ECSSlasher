@@ -17,3 +17,7 @@ MonoBehaviour:
     view: {fileID: 3856387004615536104, guid: a701406935f9d7c43998727fba7e83ae, type: 3}
   - name: Bullet
     view: {fileID: 1059044757737291118, guid: b2dcbd8f531528741ba84cc76cc9bc13, type: 3}
+  - name: VirtualCamera
+    view: {fileID: -1357255969832399150, guid: 8916c858ddb3d4a419225a6ea52805c0, type: 3}
+  - name: Camera
+    view: {fileID: 3560113123436602584, guid: 6b53e27793a33924a8a7904e9802ea26, type: 3}

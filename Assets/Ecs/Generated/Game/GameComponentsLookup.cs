@@ -17,22 +17,23 @@ public static class GameComponentsLookup
 	public const int CharacterController = 1;
 	public const int LifeTime = 2;
 	public const int Player = 3;
-	public const int Instantiate = 4;
-	public const int Link = 5;
-	public const int LocalPosition = 6;
-	public const int LookDirection = 7;
-	public const int Position = 8;
-	public const int Prefab = 9;
-	public const int Rotation = 10;
-	public const int Transform = 11;
-	public const int Velocity = 12;
-	public const int LinkRemovedListener = 13;
-	public const int LocalPositionAddedListener = 14;
-	public const int PositionAddedListener = 15;
-	public const int RotationAddedListener = 16;
-	public const int VelocityAddedListener = 17;
+	public const int Camera = 4;
+	public const int Instantiate = 5;
+	public const int Link = 6;
+	public const int LocalPosition = 7;
+	public const int LookDirection = 8;
+	public const int Position = 9;
+	public const int Prefab = 10;
+	public const int Rotation = 11;
+	public const int Transform = 12;
+	public const int Velocity = 13;
+	public const int LinkRemovedListener = 14;
+	public const int LocalPositionAddedListener = 15;
+	public const int PositionAddedListener = 16;
+	public const int RotationAddedListener = 17;
+	public const int VelocityAddedListener = 18;
 
-	public const int TotalComponents = 18;
+	public const int TotalComponents = 19;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -40,6 +41,7 @@ public static class GameComponentsLookup
 		"CharacterController",
 		"LifeTime",
 		"Player",
+		"Camera",
 		"Instantiate",
 		"Link",
 		"LocalPosition",
@@ -62,6 +64,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.CharacterControllerComponent),
 		typeof(Ecs.Game.Components.LifeTimeComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
+		typeof(Ecs.Game.Core.Components.CameraComponent),
 		typeof(Ecs.Game.Core.Components.InstantiateComponent),
 		typeof(Ecs.Game.Core.Components.LinkComponent),
 		typeof(Ecs.Game.Core.Components.LocalPositionComponent),
@@ -84,20 +87,21 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 1 },
 		{ typeof(Ecs.Game.Components.LifeTimeComponent), 2 },
 		{ typeof(Ecs.Game.Components.PlayerComponent), 3 },
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 4 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 5 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 6 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 7 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 8 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 9 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 10 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 11 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 12 },
-		{ typeof(LinkRemovedListenerComponent), 13 },
-		{ typeof(LocalPositionAddedListenerComponent), 14 },
-		{ typeof(PositionAddedListenerComponent), 15 },
-		{ typeof(RotationAddedListenerComponent), 16 },
-		{ typeof(VelocityAddedListenerComponent), 17 }
+		{ typeof(Ecs.Game.Core.Components.CameraComponent), 4 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 5 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 6 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 7 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 8 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 9 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 10 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 11 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 12 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 13 },
+		{ typeof(LinkRemovedListenerComponent), 14 },
+		{ typeof(LocalPositionAddedListenerComponent), 15 },
+		{ typeof(PositionAddedListenerComponent), 16 },
+		{ typeof(RotationAddedListenerComponent), 17 },
+		{ typeof(VelocityAddedListenerComponent), 18 }
 	};
 
 	/// <summary>

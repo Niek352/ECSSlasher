@@ -18,21 +18,9 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.LifeTimeComponent LifeTime)
+		if (component is Ecs.Game.Core.Components.CameraComponent Camera)
 		{
-			CopyLifeTimeTo(LifeTime);
-		}
-		else if (component is Ecs.Game.Components.BulletComponent Bullet)
-		{
-			IsBullet = true;
-		}
-		else if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
-		{
-			CopyCharacterControllerTo(CharacterController);
-		}
-		else if (component is Ecs.Game.Components.PlayerComponent Player)
-		{
-			IsPlayer = true;
+			IsCamera = true;
 		}
 		else if (component is Ecs.Game.Core.Components.PositionComponent Position)
 		{
@@ -69,6 +57,22 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Core.Components.InstantiateComponent Instantiate)
 		{
 			IsInstantiate = true;
+		}
+		else if (component is Ecs.Game.Components.BulletComponent Bullet)
+		{
+			IsBullet = true;
+		}
+		else if (component is Ecs.Game.Components.PlayerComponent Player)
+		{
+			IsPlayer = true;
+		}
+		else if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
+		{
+			CopyCharacterControllerTo(CharacterController);
+		}
+		else if (component is Ecs.Game.Components.LifeTimeComponent LifeTime)
+		{
+			CopyLifeTimeTo(LifeTime);
 		}
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{

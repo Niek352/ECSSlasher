@@ -32,5 +32,27 @@ namespace Ecs.Game.Extensions
             gamePlayer.AddLookDirection(Vector3.forward);
             gamePlayer.IsInstantiate = true;
         }
+        
+        public static GameEntity CreateCamera(this GameContext game)
+        {
+            var entity = game.CreateEntity();
+            entity.AddPrefab("Camera");
+            entity.AddPosition(Vector3.zero);
+            entity.AddRotation(Quaternion.identity);
+            entity.IsCamera = true;
+            entity.IsInstantiate = true;
+            return entity;
+        }
+        
+        public static GameEntity CreateVirtualCamera(this GameContext game)
+        {
+            var entity = game.CreateEntity();
+            entity.AddPrefab("VirtualCamera");
+            entity.AddPosition(Vector3.zero);
+            entity.AddRotation(Quaternion.identity);
+            entity.IsInstantiate = true;
+            return entity;
+        }
+
     }
 }

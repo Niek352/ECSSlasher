@@ -24,6 +24,8 @@ using VContainer;
             container.Register<PlayerLookService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<PlayerMoveService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<BulletRayCastSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<CameraInitializeSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<CameraBrainUpdateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<ViewInstantiateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 		}
 	}
