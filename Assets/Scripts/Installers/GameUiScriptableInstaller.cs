@@ -1,12 +1,13 @@
 ﻿using Ui.Hud;
 using Ui.Hud.EnemyCounter;
 using Ui.Hud.HealthDrawer;
+using Ui.Loose;
+using Ui.Loose.Restart;
 using UnityEngine;
 using VContainer;
 using VContainer.Extensions;
 using VContainer.Unity;
 using VContainerUi;
-using VContainerUi.Interfaces;
 using VContainerUi.Model;
 
 namespace Installers
@@ -18,6 +19,7 @@ namespace Installers
 		[Space(10)]
 		[SerializeField] private EnemyCounterView _counterView;
 		[SerializeField] private HealthDrawerView _healthDrawerView;
+		[SerializeField] private RestartView _restartView;
 		
 		public override void Install(IContainerBuilder builder)
 		{
@@ -33,11 +35,15 @@ namespace Installers
 		{
 			builder.RegisterUiView<EnemyCounterController, EnemyCounterView>(_counterView, canvas.transform);
 			builder.RegisterUiView<HealthDrawerController, HealthDrawerView>(_healthDrawerView, canvas.transform);
+			builder.RegisterUiView<RestartController, RestartView>(_restartView, canvas.transform);
 		}
 		
 		private void ConfigureWindows(IContainerBuilder builder)
 		{
 			builder.Register<GameHUDWindow>(Lifetime.Singleton)
+				.AsImplementedInterfaces().AsSelf();
+			
+			builder.Register<LooseWindow>(Lifetime.Singleton)
 				.AsImplementedInterfaces().AsSelf();
 		}
 		

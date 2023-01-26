@@ -2,7 +2,10 @@
 using ClassLibrary1;
 using ClassLibrary1.Enums;
 using JCMG.EntitasRedux;
+using MessagePipe;
 using Services.Statistic;
+using Ui.Loose;
+using VContainerUi.Messages;
 
 namespace Ecs.Game.Systems
 {
@@ -10,9 +13,15 @@ namespace Ecs.Game.Systems
 	public class EntityDeadSystem : ReactiveSystem<GameEntity>
 	{
 		private readonly IStatisticService _statistic;
-		public EntityDeadSystem(GameContext game, IStatisticService statistic) : base(game)
+		private readonly IPublisher<MessageOpenWindow> _openWindow;
+		
+		public EntityDeadSystem(
+			GameContext game,
+			IStatisticService statistic,
+			IPublisher<MessageOpenWindow> openWindow) : base(game)
 		{
 			_statistic = statistic;
+			_openWindow = openWindow;
 		}
 		
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> game)
@@ -44,7 +53,8 @@ namespace Ecs.Game.Systems
 
 		private void PlayerDead(GameEntity entity)
 		{
-			
+			_openWindow.Publish(new MessageOpenWindow(typeof(LooseWindow)));
+			entity.MoveSpeed.Value = 0;
 		}
 	}
 }

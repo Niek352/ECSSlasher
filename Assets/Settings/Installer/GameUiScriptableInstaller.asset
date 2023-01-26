@@ -15,3 +15,4 @@ MonoBehaviour:
   _canvas: {fileID: 6457204122439779412, guid: a94ffbea9d1355c468a9fbe0b93e81ba, type: 3}
   _counterView: {fileID: -5761806878700421177, guid: 5126a3638fe1fc74f9bc250ff6bda306, type: 3}
   _healthDrawerView: {fileID: 5001256687735037138, guid: 0a22007a8030a3d4693a2877fe78d0df, type: 3}
+  _restartView: {fileID: 2062486279358553275, guid: acf8d5ae249a8c54482724d2c26072fe, type: 3}
