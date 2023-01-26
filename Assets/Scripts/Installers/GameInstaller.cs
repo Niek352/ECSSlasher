@@ -2,6 +2,7 @@
 using Services.Camera.Impl;
 using Services.Input.Impl;
 using Services.StateMachineService.Impl;
+using Services.Statistic.Impl;
 using VContainer;
 using VContainer.Extensions;
 
@@ -15,6 +16,7 @@ namespace Installers
 			builder.Register<InputProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<PlayerCameraProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<StateMachineService>(Lifetime.Singleton).AsImplementedInterfaces();
+			builder.Register<StatisticService>(Lifetime.Singleton).AsImplementedInterfaces();
 		}
 	}
 }

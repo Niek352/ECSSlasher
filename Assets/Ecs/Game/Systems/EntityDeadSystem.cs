@@ -2,14 +2,17 @@
 using ClassLibrary1;
 using ClassLibrary1.Enums;
 using JCMG.EntitasRedux;
+using Services.Statistic;
 
 namespace Ecs.Game.Systems
 {
 	[Install(ExecutionType.Game, ExecutionPriority.Normal, 102)]
 	public class EntityDeadSystem : ReactiveSystem<GameEntity>
 	{
-		public EntityDeadSystem(IContext<GameEntity> context) : base(context)
+		private readonly IStatisticService _statistic;
+		public EntityDeadSystem(GameContext game, IStatisticService statistic) : base(game)
 		{
+			_statistic = statistic;
 		}
 		
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> game)
@@ -36,6 +39,7 @@ namespace Ecs.Game.Systems
 		private void EnemyDead(GameEntity entity)
 		{
 			entity.Destroy();
+			_statistic.NumberKilledEnemies.Value++;
 		}
 
 		private void PlayerDead(GameEntity entity)
