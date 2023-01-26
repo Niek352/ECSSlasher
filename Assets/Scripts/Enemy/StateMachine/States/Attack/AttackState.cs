@@ -31,11 +31,11 @@ namespace Enemy.StateMachine.States.Attack
 			
 			if (_attack.InCoolDown)
 			{
-				_owner.CurrentAttackCooldown.Value -= deltaTime;
+				_owner.Cooldown.Value -= deltaTime;
 			}
 			else 
 			{
-				_owner.CurrentAttackCooldown.Value = _owner.MaxAttackCooldown.Value;
+				_owner.Cooldown.Value = _owner.MaxCooldown.Value;
 				_attack.Attack();
 			}
 		}

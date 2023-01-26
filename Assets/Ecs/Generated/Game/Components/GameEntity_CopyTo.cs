@@ -58,6 +58,14 @@ public partial class GameEntity
 		{
 			IsInstantiate = true;
 		}
+		else if (component is Ecs.Game.Components.CharacterIdComponent CharacterId)
+		{
+			CopyCharacterIdTo(CharacterId);
+		}
+		else if (component is Ecs.Game.Components.EnemyWaveComponent EnemyWave)
+		{
+			CopyEnemyWaveTo(EnemyWave);
+		}
 		else if (component is Ecs.Game.Components.DeadComponent Dead)
 		{
 			IsDead = true;
@@ -98,17 +106,17 @@ public partial class GameEntity
 		{
 			CopyCharacterControllerTo(CharacterController);
 		}
-		else if (component is Ecs.Game.Components.CurrentAttackCooldownComponent CurrentAttackCooldown)
+		else if (component is Ecs.Game.Components.CooldownComponent Cooldown)
 		{
-			CopyCurrentAttackCooldownTo(CurrentAttackCooldown);
+			CopyCooldownTo(Cooldown);
 		}
 		else if (component is Ecs.Game.Components.MoveSpeedComponent MoveSpeed)
 		{
 			CopyMoveSpeedTo(MoveSpeed);
 		}
-		else if (component is Ecs.Game.Components.MaxAttackCooldownComponent MaxAttackCooldown)
+		else if (component is Ecs.Game.Components.MaxCooldownComponent MaxCooldown)
 		{
-			CopyMaxAttackCooldownTo(MaxAttackCooldown);
+			CopyMaxCooldownTo(MaxCooldown);
 		}
 		else if (component is Ecs.Game.Components.HealthComponent Health)
 		{

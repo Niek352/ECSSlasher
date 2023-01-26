@@ -3,7 +3,7 @@
 namespace Ecs.Game.Components
 {
 	[Game]
-	public class CurrentAttackCooldownComponent : IComponent
+	public class CooldownComponent : IComponent
 	{
 		public float Value;
 	}

@@ -1,7 +1,7 @@
 ﻿using ClassLibrary1;
 using ClassLibrary1.Enums;
 using JCMG.EntitasRedux;
-using Services.Camera;
+using Services.CameraProvider;
 
 namespace Ecs.Game.Systems
 {

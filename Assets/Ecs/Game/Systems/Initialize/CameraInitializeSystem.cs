@@ -3,7 +3,6 @@ using ClassLibrary1;
 using ClassLibrary1.Enums;
 using Ecs.Game.Extensions;
 using JCMG.EntitasRedux;
-using Services.Camera;
 
 namespace Ecs.Game.Systems.Initialize
 {

@@ -1,14 +1,14 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace Services.Camera.Impl
+namespace Services.CameraProvider.Impl
 {
 	public class PlayerCameraProvider : ICameraProvider
 	{
 		private CinemachineVirtualCamera _thirdPersonCamera;
 		private CinemachineBrain _brain;
 
-		public UnityEngine.Camera Camera { get; set; }
+		public Camera Camera { get; set; }
 		public Transform Follow { get; set; }
 		public Transform LookAt { get; set; }
 		
@@ -19,7 +19,7 @@ namespace Services.Camera.Impl
 			_thirdPersonCamera.LookAt = LookAt;
 		}
 		
-		public void InitCamera(UnityEngine.Camera camera, CinemachineBrain brain)
+		public void InitCamera(Camera camera, CinemachineBrain brain)
 		{
 			Camera = camera;
 			_brain = brain;

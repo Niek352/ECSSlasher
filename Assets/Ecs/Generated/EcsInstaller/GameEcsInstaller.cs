@@ -31,6 +31,7 @@ using VContainer;
             container.Register<StateMachineUpdateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<ProcessAttackSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<EntityDeadSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<EnemySpawnSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<ViewInstantiateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 		}
 	}

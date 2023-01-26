@@ -11,7 +11,7 @@ namespace Enemy.Attack.Impl
 		private readonly ActionContext _action;
 
 		public override EnemyAttackType EnemyAttackType => EnemyAttackType.Range;
-		public override bool InCoolDown => _owner.CurrentAttackCooldown.Value > 0;
+		public override bool InCoolDown => _owner.Cooldown.Value > 0;
 		
 		public RangeAttack(GameEntity owner, ActionContext action)
 		{

@@ -10,7 +10,7 @@ namespace Enemy.Attack.Impl
 		private readonly ActionContext _actionContext;
 		private readonly GameContext _gameContext;
 		public override EnemyAttackType EnemyAttackType => EnemyAttackType.Melee;
-		public override bool InCoolDown => _owner.CurrentAttackCooldown.Value > 0;
+		public override bool InCoolDown => _owner.Cooldown.Value > 0;
 
 		public MeleeAttack(GameEntity owner, ActionContext actionContext, GameContext gameContext)
 		{

@@ -1,6 +1,6 @@
 using Interfaces;
 using JCMG.EntitasRedux;
-using Services.Camera;
+using Services.CameraProvider;
 using UnityEngine;
 using VContainer;
 

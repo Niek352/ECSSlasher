@@ -1,5 +1,6 @@
 ﻿using Ecs.Factories.View.Impl;
-using Services.Camera.Impl;
+using Services;
+using Services.CameraProvider.Impl;
 using Services.Input.Impl;
 using Services.StateMachineService.Impl;
 using Services.Statistic.Impl;
@@ -17,6 +18,7 @@ namespace Installers
 			builder.Register<PlayerCameraProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<StateMachineService>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<StatisticService>(Lifetime.Singleton).AsImplementedInterfaces();
+			builder.Register<EnemySpawnPointService>(Lifetime.Singleton).AsImplementedInterfaces();
 		}
 	}
 }

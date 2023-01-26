@@ -16,53 +16,57 @@ public static class GameComponentsLookup
 	public const int AttackRange = 0;
 	public const int Bullet = 1;
 	public const int CharacterController = 2;
-	public const int CurrentAttackCooldown = 3;
-	public const int Damage = 4;
-	public const int Dead = 5;
-	public const int Defence = 6;
-	public const int Enemy = 7;
-	public const int EnemyModel = 8;
-	public const int Health = 9;
-	public const int LayerMask = 10;
-	public const int LifeTime = 11;
-	public const int MaxAttackCooldown = 12;
-	public const int MoveSpeed = 13;
-	public const int Player = 14;
-	public const int StateMachine = 15;
-	public const int Target = 16;
-	public const int Camera = 17;
-	public const int Instantiate = 18;
-	public const int Link = 19;
-	public const int LocalPosition = 20;
-	public const int LookDirection = 21;
-	public const int Position = 22;
-	public const int Prefab = 23;
-	public const int Rotation = 24;
-	public const int Transform = 25;
-	public const int Velocity = 26;
-	public const int LinkRemovedListener = 27;
-	public const int LocalPositionAddedListener = 28;
-	public const int PositionAddedListener = 29;
-	public const int RotationAddedListener = 30;
-	public const int VelocityAddedListener = 31;
+	public const int CharacterId = 3;
+	public const int Cooldown = 4;
+	public const int Damage = 5;
+	public const int Dead = 6;
+	public const int Defence = 7;
+	public const int Enemy = 8;
+	public const int EnemyModel = 9;
+	public const int EnemyWave = 10;
+	public const int Health = 11;
+	public const int LayerMask = 12;
+	public const int LifeTime = 13;
+	public const int MaxCooldown = 14;
+	public const int MoveSpeed = 15;
+	public const int Player = 16;
+	public const int StateMachine = 17;
+	public const int Target = 18;
+	public const int Camera = 19;
+	public const int Instantiate = 20;
+	public const int Link = 21;
+	public const int LocalPosition = 22;
+	public const int LookDirection = 23;
+	public const int Position = 24;
+	public const int Prefab = 25;
+	public const int Rotation = 26;
+	public const int Transform = 27;
+	public const int Velocity = 28;
+	public const int LinkRemovedListener = 29;
+	public const int LocalPositionAddedListener = 30;
+	public const int PositionAddedListener = 31;
+	public const int RotationAddedListener = 32;
+	public const int VelocityAddedListener = 33;
 
-	public const int TotalComponents = 32;
+	public const int TotalComponents = 34;
 
 	public static readonly string[] ComponentNames =
 	{
 		"AttackRange",
 		"Bullet",
 		"CharacterController",
-		"CurrentAttackCooldown",
+		"CharacterId",
+		"Cooldown",
 		"Damage",
 		"Dead",
 		"Defence",
 		"Enemy",
 		"EnemyModel",
+		"EnemyWave",
 		"Health",
 		"LayerMask",
 		"LifeTime",
-		"MaxAttackCooldown",
+		"MaxCooldown",
 		"MoveSpeed",
 		"Player",
 		"StateMachine",
@@ -89,16 +93,18 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.AttackRangeComponent),
 		typeof(Ecs.Game.Components.BulletComponent),
 		typeof(Ecs.Game.Components.CharacterControllerComponent),
-		typeof(Ecs.Game.Components.CurrentAttackCooldownComponent),
+		typeof(Ecs.Game.Components.CharacterIdComponent),
+		typeof(Ecs.Game.Components.CooldownComponent),
 		typeof(Ecs.Game.Components.DamageComponent),
 		typeof(Ecs.Game.Components.DeadComponent),
 		typeof(Ecs.Game.Components.DefenceComponent),
 		typeof(Ecs.Game.Components.EnemyComponent),
 		typeof(Ecs.Game.Components.EnemyModelComponent),
+		typeof(Ecs.Game.Components.EnemyWaveComponent),
 		typeof(Ecs.Game.Components.HealthComponent),
 		typeof(Ecs.Game.Components.LayerMaskComponent),
 		typeof(Ecs.Game.Components.LifeTimeComponent),
-		typeof(Ecs.Game.Components.MaxAttackCooldownComponent),
+		typeof(Ecs.Game.Components.MaxCooldownComponent),
 		typeof(Ecs.Game.Components.MoveSpeedComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Components.StateMachineComponent),
@@ -125,35 +131,37 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.AttackRangeComponent), 0 },
 		{ typeof(Ecs.Game.Components.BulletComponent), 1 },
 		{ typeof(Ecs.Game.Components.CharacterControllerComponent), 2 },
-		{ typeof(Ecs.Game.Components.CurrentAttackCooldownComponent), 3 },
-		{ typeof(Ecs.Game.Components.DamageComponent), 4 },
-		{ typeof(Ecs.Game.Components.DeadComponent), 5 },
-		{ typeof(Ecs.Game.Components.DefenceComponent), 6 },
-		{ typeof(Ecs.Game.Components.EnemyComponent), 7 },
-		{ typeof(Ecs.Game.Components.EnemyModelComponent), 8 },
-		{ typeof(Ecs.Game.Components.HealthComponent), 9 },
-		{ typeof(Ecs.Game.Components.LayerMaskComponent), 10 },
-		{ typeof(Ecs.Game.Components.LifeTimeComponent), 11 },
-		{ typeof(Ecs.Game.Components.MaxAttackCooldownComponent), 12 },
-		{ typeof(Ecs.Game.Components.MoveSpeedComponent), 13 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 14 },
-		{ typeof(Ecs.Game.Components.StateMachineComponent), 15 },
-		{ typeof(Ecs.Game.Components.TargetComponent), 16 },
-		{ typeof(Ecs.Game.Core.Components.CameraComponent), 17 },
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 18 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 19 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 20 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 21 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 22 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 23 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 24 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 25 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 26 },
-		{ typeof(LinkRemovedListenerComponent), 27 },
-		{ typeof(LocalPositionAddedListenerComponent), 28 },
-		{ typeof(PositionAddedListenerComponent), 29 },
-		{ typeof(RotationAddedListenerComponent), 30 },
-		{ typeof(VelocityAddedListenerComponent), 31 }
+		{ typeof(Ecs.Game.Components.CharacterIdComponent), 3 },
+		{ typeof(Ecs.Game.Components.CooldownComponent), 4 },
+		{ typeof(Ecs.Game.Components.DamageComponent), 5 },
+		{ typeof(Ecs.Game.Components.DeadComponent), 6 },
+		{ typeof(Ecs.Game.Components.DefenceComponent), 7 },
+		{ typeof(Ecs.Game.Components.EnemyComponent), 8 },
+		{ typeof(Ecs.Game.Components.EnemyModelComponent), 9 },
+		{ typeof(Ecs.Game.Components.EnemyWaveComponent), 10 },
+		{ typeof(Ecs.Game.Components.HealthComponent), 11 },
+		{ typeof(Ecs.Game.Components.LayerMaskComponent), 12 },
+		{ typeof(Ecs.Game.Components.LifeTimeComponent), 13 },
+		{ typeof(Ecs.Game.Components.MaxCooldownComponent), 14 },
+		{ typeof(Ecs.Game.Components.MoveSpeedComponent), 15 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 16 },
+		{ typeof(Ecs.Game.Components.StateMachineComponent), 17 },
+		{ typeof(Ecs.Game.Components.TargetComponent), 18 },
+		{ typeof(Ecs.Game.Core.Components.CameraComponent), 19 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 20 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 21 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 22 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 23 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 24 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 25 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 26 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 27 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 28 },
+		{ typeof(LinkRemovedListenerComponent), 29 },
+		{ typeof(LocalPositionAddedListenerComponent), 30 },
+		{ typeof(PositionAddedListenerComponent), 31 },
+		{ typeof(RotationAddedListenerComponent), 32 },
+		{ typeof(VelocityAddedListenerComponent), 33 }
 	};
 
 	/// <summary>

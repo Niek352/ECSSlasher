@@ -77,17 +77,28 @@ namespace Ecs.Game.Extensions
             entity.AddEnemyModel(enemyModel);
             entity.AddPosition(position);
             entity.AddRotation(Quaternion.identity);
+            entity.AddCharacterId(0);
             
             entity.AddMoveSpeed(enemyModel.MoveSpeed);
             entity.AddLayerMask(enemyModel.BulletLayerMask);
             entity.AddHealth(enemyModel.Health);
             entity.AddDefence(enemyModel.Defence);
             entity.AddDamage(enemyModel.Damage);
-            entity.AddCurrentAttackCooldown(0);
-            entity.AddMaxAttackCooldown(enemyModel.AttackCooldown);
+            entity.AddCooldown(0);
+            entity.AddMaxCooldown(enemyModel.AttackCooldown);
             entity.AddAttackRange(enemyModel.AttackRange);
             
             entity.IsInstantiate = true;
+            return entity;
+        }
+        
+        public static GameEntity CreateEnemyWave(this GameContext game
+        )
+        {
+            var entity = game.CreateEntity();
+            entity.AddEnemyWave(100);
+            entity.AddCooldown(2f);
+            entity.AddMaxCooldown(.7f);
             return entity;
         }
     }
