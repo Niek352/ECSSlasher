@@ -1,4 +1,5 @@
-﻿using Enemy.Attack.Abstract;
+﻿using Ecs.Action.Components;
+using Enemy.Attack.Abstract;
 using Model.Enemy;
 using UnityEngine;
 
@@ -20,9 +21,11 @@ namespace Enemy.Attack.Impl
 		
 		public override void Attack()
 		{
-			_action.CreateEntity().AddCreateBullet(
-				_owner.Position.Value, 
-				_owner.Rotation.Value.eulerAngles * 5);
+			_action.CreateEntity().AddCreateBullet(new CreateBulletData(
+				_owner.Position.Value + Vector3.up, 
+				_owner.Transform.Value.forward * 5,
+				_owner.Damage.Value,
+				_owner.LayerMask.Value));
 		}
 	}
 }

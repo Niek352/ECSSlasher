@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ClassLibrary1;
 using ClassLibrary1.Enums;
+using Ecs.Action.Components;
 using Ecs.Game.Extensions;
 using JCMG.EntitasRedux;
 using Services.Input;
@@ -24,13 +25,17 @@ namespace Ecs.Action.Systems
 		{
 			_action = action;
 			_game = game;
-			_inp = inputProvider.OnFireCommand.Subscribe(OnBull);
+			_inp = inputProvider.OnFireCommand.Subscribe(OnPlayerShoot);
 		}
 		
-		private void OnBull(Unit obj)
+		private void OnPlayerShoot(Unit _)
 		{
 			var playerEntity = _game.PlayerEntity;
-			_action.CreateEntity().AddCreateBullet(playerEntity.Position.Value, playerEntity.Transform.Value.forward * 10);
+			_action.CreateEntity().AddCreateBullet(new CreateBulletData(
+				playerEntity.Position.Value + Vector3.up, 
+				playerEntity.Transform.Value.forward * 10,
+				playerEntity.Damage.Value,
+				playerEntity.LayerMask.Value));
 		}
 
 		protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context)
@@ -43,7 +48,8 @@ namespace Ecs.Action.Systems
 		{
 			foreach (var entity in entities)
 			{
-				_game.CreateBullet(entity.CreateBullet.SpawnPoint, entity.CreateBullet.Velocity);
+				_game.CreateBullet(
+					ref entity.CreateBullet.CreateBulletData);
 				entity.Destroy();
 			}
 		}

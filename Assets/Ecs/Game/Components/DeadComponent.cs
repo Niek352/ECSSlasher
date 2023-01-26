@@ -3,9 +3,8 @@
 namespace Ecs.Game.Components
 {
 	[Game]
-	public class HealthComponent : IComponent
+	public class DeadComponent : IComponent
 	{
-		public float Value;
-	}
 
+	}
 }

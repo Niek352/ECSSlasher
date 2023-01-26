@@ -22,13 +22,15 @@ using VContainer;
 		{
 			container.Register<GameInitializeSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<CreateBulletSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-            container.Register<PlayerMoveService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<PlayerMoveSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<BulletRayCastSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<CameraInitializeSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<CameraBrainUpdateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<EnemyInitializeSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-            container.Register<PlayerLookService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<PlayerLookSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<StateMachineUpdateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<ProcessAttackSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            container.Register<EntityDeadSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             container.Register<ViewInstantiateSystem>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 		}
 	}

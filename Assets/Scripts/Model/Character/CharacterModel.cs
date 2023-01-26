@@ -6,6 +6,6 @@ namespace Model.Character
 	{
 		[field:SerializeField] public string Id { get; set; }
 		[field:SerializeField] public float Health { get; set; }
-		[field:SerializeField] public float Defence { get; set; }
+		[field: Range(0,1)] [field:SerializeField] public float Defence { get; set; }
 	}
 }

@@ -22,5 +22,22 @@ MonoBehaviour:
     EnemyType: 0
     EnemyAttackType: 0
     EnemyMovementType: 0
+    BulletLayerMask:
+      serializedVersion: 2
+      m_Bits: 64
     AttackRange: 1.2
+    EnemyStateMachineBuilder: {fileID: 11400000, guid: 70be53ee41b90fd4ca837762cd591dd2, type: 2}
+  - <Id>k__BackingField: Ranger
+    <Health>k__BackingField: 100
+    <Defence>k__BackingField: 0.2
+    <MoveSpeed>k__BackingField: 5
+    <Damage>k__BackingField: 10
+    <AttackCooldown>k__BackingField: 1
+    EnemyType: 1
+    EnemyAttackType: 1
+    EnemyMovementType: 0
+    BulletLayerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    AttackRange: 3
     EnemyStateMachineBuilder: {fileID: 11400000, guid: 70be53ee41b90fd4ca837762cd591dd2, type: 2}

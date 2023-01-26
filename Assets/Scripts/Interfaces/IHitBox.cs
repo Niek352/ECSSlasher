@@ -6,4 +6,9 @@ namespace Interfaces
 	{
 		void ApplyHit(ref RaycastHit hit, GameEntity bullet);
 	}
+
+	public interface IEntityHitBox : IHitBox
+	{
+		GameEntity GetEntity();
+	}
 }

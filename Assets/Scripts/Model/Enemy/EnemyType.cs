@@ -2,6 +2,7 @@
 {
 	public enum EnemyType
 	{
-		Warrior
+		Warrior,
+		Range
 	}
 }

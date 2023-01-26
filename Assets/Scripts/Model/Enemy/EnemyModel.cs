@@ -16,19 +16,10 @@ namespace Model.Enemy
 		public EnemyType EnemyType;
 		public EnemyAttackType EnemyAttackType;
 		public EnemyMovementType EnemyMovementType;
+		public LayerMask BulletLayerMask;
 		public float AttackRange;
 
 		public EnemyStateMachineBuilder EnemyStateMachineBuilder;
 	}
 
-	public interface IAttackModel
-	{
-		float Damage { get; }
-		float AttackCooldown { get; }
-	}
-	
-	public interface IMoveModel
-	{
-		float MoveSpeed { get; }
-	}
 }

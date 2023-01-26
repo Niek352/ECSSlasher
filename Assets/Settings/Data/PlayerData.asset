@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52ab375e8d948409110ae4d21cd97dd, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _moveSpeed: 10
-  _rotationSpeed: 2
+  _playerModel:
+    <Id>k__BackingField: Player
+    <Health>k__BackingField: 100
+    <Defence>k__BackingField: 0.3
+    <MoveSpeed>k__BackingField: 7
+    <Damage>k__BackingField: 20
+    <AttackCooldown>k__BackingField: 0.8
+    BulletLayerMask:
+      serializedVersion: 2
+      m_Bits: 128

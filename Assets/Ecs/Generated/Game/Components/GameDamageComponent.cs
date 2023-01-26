@@ -12,22 +12,22 @@ public partial class GameEntity
 	public Ecs.Game.Components.DamageComponent Damage { get { return (Ecs.Game.Components.DamageComponent)GetComponent(GameComponentsLookup.Damage); } }
 	public bool HasDamage { get { return HasComponent(GameComponentsLookup.Damage); } }
 
-	public void AddDamage(float newDamage)
+	public void AddDamage(float newValue)
 	{
 		var index = GameComponentsLookup.Damage;
 		var component = (Ecs.Game.Components.DamageComponent)CreateComponent(index, typeof(Ecs.Game.Components.DamageComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.Damage = newDamage;
+		component.Value = newValue;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplaceDamage(float newDamage)
+	public void ReplaceDamage(float newValue)
 	{
 		var index = GameComponentsLookup.Damage;
 		var component = (Ecs.Game.Components.DamageComponent)CreateComponent(index, typeof(Ecs.Game.Components.DamageComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.Damage = newDamage;
+		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
@@ -37,7 +37,7 @@ public partial class GameEntity
 		var index = GameComponentsLookup.Damage;
 		var component = (Ecs.Game.Components.DamageComponent)CreateComponent(index, typeof(Ecs.Game.Components.DamageComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.Damage = copyComponent.Damage;
+		component.Value = copyComponent.Value;
 		#endif
 		ReplaceComponent(index, component);
 	}

@@ -12,24 +12,22 @@ public partial class ActionEntity
 	public Ecs.Action.Components.CreateBulletComponent CreateBullet { get { return (Ecs.Action.Components.CreateBulletComponent)GetComponent(ActionComponentsLookup.CreateBullet); } }
 	public bool HasCreateBullet { get { return HasComponent(ActionComponentsLookup.CreateBullet); } }
 
-	public void AddCreateBullet(UnityEngine.Vector3 newSpawnPoint, UnityEngine.Vector3 newVelocity)
+	public void AddCreateBullet(Ecs.Action.Components.CreateBulletData newCreateBulletData)
 	{
 		var index = ActionComponentsLookup.CreateBullet;
 		var component = (Ecs.Action.Components.CreateBulletComponent)CreateComponent(index, typeof(Ecs.Action.Components.CreateBulletComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.SpawnPoint = newSpawnPoint;
-		component.Velocity = newVelocity;
+		component.CreateBulletData = newCreateBulletData;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplaceCreateBullet(UnityEngine.Vector3 newSpawnPoint, UnityEngine.Vector3 newVelocity)
+	public void ReplaceCreateBullet(Ecs.Action.Components.CreateBulletData newCreateBulletData)
 	{
 		var index = ActionComponentsLookup.CreateBullet;
 		var component = (Ecs.Action.Components.CreateBulletComponent)CreateComponent(index, typeof(Ecs.Action.Components.CreateBulletComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.SpawnPoint = newSpawnPoint;
-		component.Velocity = newVelocity;
+		component.CreateBulletData = newCreateBulletData;
 		#endif
 		ReplaceComponent(index, component);
 	}
@@ -39,8 +37,7 @@ public partial class ActionEntity
 		var index = ActionComponentsLookup.CreateBullet;
 		var component = (Ecs.Action.Components.CreateBulletComponent)CreateComponent(index, typeof(Ecs.Action.Components.CreateBulletComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.SpawnPoint = copyComponent.SpawnPoint;
-		component.Velocity = copyComponent.Velocity;
+		component.CreateBulletData = copyComponent.CreateBulletData;
 		#endif
 		ReplaceComponent(index, component);
 	}

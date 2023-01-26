@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ClassLibrary1;
 using ClassLibrary1.Enums;
-using Db.BulletData;
+using Ecs.Action.Components;
 using Interfaces;
 using JCMG.EntitasRedux;
 using Unity.Collections;
@@ -15,7 +15,7 @@ namespace Ecs.Game.Systems
 	[Install(ExecutionType.Game, ExecutionPriority.Normal, 15, "Bullet")]
 	public class BulletRayCastSystem : IUpdateSystem, IDisposable
 	{
-		private readonly IBulletData _bulletData;
+		private readonly ActionContext _actionContext;
 		private readonly List<RaycastCommand> _tempList = new List<RaycastCommand>();
 		private readonly IGroup<GameEntity> _bulletGroup;
 
@@ -25,9 +25,9 @@ namespace Ecs.Game.Systems
 		
 		public BulletRayCastSystem(
 			GameContext game,
-			IBulletData bulletData)
+			ActionContext actionContext)
 		{
-			_bulletData = bulletData;
+			_actionContext = actionContext;
 			_bulletGroup = game.GetGroup(GameMatcher.AllOf(GameMatcher.Bullet));
 		}
 		
@@ -57,6 +57,9 @@ namespace Ecs.Game.Systems
 						if (hit.collider.TryGetComponent(out IHitBox box))
 						{
 							box.ApplyHit(ref hit, b);
+							
+							if (box is IEntityHitBox entityHitBox)
+								_actionContext.CreateEntity().AddProcessAttack(new ProcessAttackData(b, entityHitBox.GetEntity()));
 						}
 					
 						b.Velocity.Value = Vector3.Reflect(b.Velocity.Value, hit.normal);
@@ -69,7 +72,7 @@ namespace Ecs.Game.Systems
 				b.LifeTime.Value -= Time.deltaTime;
 				var newPosition = CalculateNewPosition(b);
 				b.ReplacePosition(newPosition);
-				RaycastSegment(lastPosition, newPosition, _tempList);
+				RaycastSegment(lastPosition, newPosition, _tempList, b);
 			}
 			
 			if (_raycastCommands.IsCreated)
@@ -89,11 +92,11 @@ namespace Ecs.Game.Systems
 			ListPool<GameEntity>.Release(bulletList);
 		}
 		
-		private void RaycastSegment(Vector3 start, Vector3 end, List<RaycastCommand> tempList)
+		private void RaycastSegment(Vector3 start, Vector3 end, List<RaycastCommand> tempList, GameEntity b)
 		{
 			var direction = end - start;
 			var distance = (end - start).magnitude;
-			tempList.Add(new RaycastCommand(start, direction, distance, _bulletData.BulletCollidedMask));
+			tempList.Add(new RaycastCommand(start, direction, distance, b.LayerMask.Value));
 		}
 		
 		private Vector3 CalculateNewPosition(GameEntity bullet)

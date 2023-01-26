@@ -10,13 +10,11 @@ namespace Ecs.Game.Systems.Initialize
 	[Install(ExecutionType.Game, ExecutionPriority.Normal, 15, "Camera")]
 	public class CameraInitializeSystem : ReactiveSystem<GameEntity>
 	{
-		private readonly ICameraProvider _cameraProvider;
 		private readonly GameContext _game;
 
-		public CameraInitializeSystem(GameContext game, ICameraProvider cameraProvider) : base(game)
+		public CameraInitializeSystem(GameContext game) : base(game)
 		{
 			_game = game;
-			_cameraProvider = cameraProvider;
 		}
 
 		protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -27,8 +25,6 @@ namespace Ecs.Game.Systems.Initialize
 		
 		protected override void Execute(List<GameEntity> entities)
 		{
-			
-
 			_game.CreateCamera();
 			_game.CreateVirtualCamera();
 		}

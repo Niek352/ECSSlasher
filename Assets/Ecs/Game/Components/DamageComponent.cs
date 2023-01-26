@@ -5,6 +5,6 @@ namespace Ecs.Game.Components
 	[Game]
 	public class DamageComponent : IComponent
 	{
-		public float Damage;
+		public float Value;
 	}
 }

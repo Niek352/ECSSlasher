@@ -58,45 +58,21 @@ public partial class GameEntity
 		{
 			IsInstantiate = true;
 		}
-		else if (component is Ecs.Game.Components.TargetComponent Target)
+		else if (component is Ecs.Game.Components.DeadComponent Dead)
 		{
-			CopyTargetTo(Target);
+			IsDead = true;
 		}
-		else if (component is Ecs.Game.Components.StateMachineComponent StateMachine)
+		else if (component is Ecs.Game.Components.LayerMaskComponent LayerMask)
 		{
-			CopyStateMachineTo(StateMachine);
-		}
-		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
-		{
-			IsEnemy = true;
+			CopyLayerMaskTo(LayerMask);
 		}
 		else if (component is Ecs.Game.Components.DefenceComponent Defence)
 		{
 			CopyDefenceTo(Defence);
 		}
-		else if (component is Ecs.Game.Components.HealthComponent Health)
+		else if (component is Ecs.Game.Components.TargetComponent Target)
 		{
-			CopyHealthTo(Health);
-		}
-		else if (component is Ecs.Game.Components.MaxAttackCooldownComponent MaxAttackCooldown)
-		{
-			CopyMaxAttackCooldownTo(MaxAttackCooldown);
-		}
-		else if (component is Ecs.Game.Components.CurrentAttackCooldownComponent CurrentAttackCooldown)
-		{
-			CopyCurrentAttackCooldownTo(CurrentAttackCooldown);
-		}
-		else if (component is Ecs.Game.Components.DamageComponent Damage)
-		{
-			CopyDamageTo(Damage);
-		}
-		else if (component is Ecs.Game.Components.MoveSpeedComponent MoveSpeed)
-		{
-			CopyMoveSpeedTo(MoveSpeed);
-		}
-		else if (component is Ecs.Game.Components.AttackRangeComponent AttackRange)
-		{
-			CopyAttackRangeTo(AttackRange);
+			CopyTargetTo(Target);
 		}
 		else if (component is Ecs.Game.Components.EnemyModelComponent EnemyModel)
 		{
@@ -106,6 +82,14 @@ public partial class GameEntity
 		{
 			IsBullet = true;
 		}
+		else if (component is Ecs.Game.Components.DamageComponent Damage)
+		{
+			CopyDamageTo(Damage);
+		}
+		else if (component is Ecs.Game.Components.EnemyComponent Enemy)
+		{
+			IsEnemy = true;
+		}
 		else if (component is Ecs.Game.Components.PlayerComponent Player)
 		{
 			IsPlayer = true;
@@ -113,6 +97,30 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.CharacterControllerComponent CharacterController)
 		{
 			CopyCharacterControllerTo(CharacterController);
+		}
+		else if (component is Ecs.Game.Components.CurrentAttackCooldownComponent CurrentAttackCooldown)
+		{
+			CopyCurrentAttackCooldownTo(CurrentAttackCooldown);
+		}
+		else if (component is Ecs.Game.Components.MoveSpeedComponent MoveSpeed)
+		{
+			CopyMoveSpeedTo(MoveSpeed);
+		}
+		else if (component is Ecs.Game.Components.MaxAttackCooldownComponent MaxAttackCooldown)
+		{
+			CopyMaxAttackCooldownTo(MaxAttackCooldown);
+		}
+		else if (component is Ecs.Game.Components.HealthComponent Health)
+		{
+			CopyHealthTo(Health);
+		}
+		else if (component is Ecs.Game.Components.StateMachineComponent StateMachine)
+		{
+			CopyStateMachineTo(StateMachine);
+		}
+		else if (component is Ecs.Game.Components.AttackRangeComponent AttackRange)
+		{
+			CopyAttackRangeTo(AttackRange);
 		}
 		else if (component is Ecs.Game.Components.LifeTimeComponent LifeTime)
 		{

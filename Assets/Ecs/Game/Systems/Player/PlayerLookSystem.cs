@@ -8,13 +8,13 @@ using UnityEngine;
 namespace Ecs.Game.Systems.Player
 {
 	[Install(ExecutionType.Game, ExecutionPriority.Low, 25, "Input")]
-	public class PlayerLookService : IUpdateSystem
+	public class PlayerLookSystem : IUpdateSystem
 	{
 		private readonly GameContext _game;
 		private readonly IInputProvider _input;
 		private readonly ICameraProvider _cameraProvider;
 		
-		public PlayerLookService(
+		public PlayerLookSystem(
 			GameContext game,
 			IInputProvider input,
 			ICameraProvider cameraProvider
