@@ -28,8 +28,8 @@ MonoBehaviour:
     AttackRange: 1.2
     EnemyStateMachineBuilder: {fileID: 11400000, guid: 70be53ee41b90fd4ca837762cd591dd2, type: 2}
   - <Id>k__BackingField: Ranger
-    <Health>k__BackingField: 100
-    <Defence>k__BackingField: 0.2
+    <Health>k__BackingField: 50
+    <Defence>k__BackingField: 0.086
     <MoveSpeed>k__BackingField: 5
     <Damage>k__BackingField: 10
     <AttackCooldown>k__BackingField: 1
@@ -39,5 +39,5 @@ MonoBehaviour:
     BulletLayerMask:
       serializedVersion: 2
       m_Bits: 64
-    AttackRange: 3
+    AttackRange: 5
     EnemyStateMachineBuilder: {fileID: 11400000, guid: 70be53ee41b90fd4ca837762cd591dd2, type: 2}
