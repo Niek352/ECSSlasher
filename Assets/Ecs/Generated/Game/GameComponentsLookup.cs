@@ -28,27 +28,29 @@ public static class GameComponentsLookup
 	public const int LayerMask = 12;
 	public const int LifeTime = 13;
 	public const int MaxCooldown = 14;
-	public const int MoveSpeed = 15;
-	public const int Player = 16;
-	public const int StateMachine = 17;
-	public const int Target = 18;
-	public const int Camera = 19;
-	public const int Instantiate = 20;
-	public const int Link = 21;
-	public const int LocalPosition = 22;
-	public const int LookDirection = 23;
-	public const int Position = 24;
-	public const int Prefab = 25;
-	public const int Rotation = 26;
-	public const int Transform = 27;
-	public const int Velocity = 28;
-	public const int LinkRemovedListener = 29;
-	public const int LocalPositionAddedListener = 30;
-	public const int PositionAddedListener = 31;
-	public const int RotationAddedListener = 32;
-	public const int VelocityAddedListener = 33;
+	public const int MaxHealth = 15;
+	public const int MoveSpeed = 16;
+	public const int Player = 17;
+	public const int StateMachine = 18;
+	public const int Target = 19;
+	public const int Camera = 20;
+	public const int Instantiate = 21;
+	public const int Link = 22;
+	public const int LocalPosition = 23;
+	public const int LookDirection = 24;
+	public const int Position = 25;
+	public const int Prefab = 26;
+	public const int Rotation = 27;
+	public const int Transform = 28;
+	public const int Velocity = 29;
+	public const int HealthAddedListener = 30;
+	public const int LinkRemovedListener = 31;
+	public const int LocalPositionAddedListener = 32;
+	public const int PositionAddedListener = 33;
+	public const int RotationAddedListener = 34;
+	public const int VelocityAddedListener = 35;
 
-	public const int TotalComponents = 34;
+	public const int TotalComponents = 36;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -67,6 +69,7 @@ public static class GameComponentsLookup
 		"LayerMask",
 		"LifeTime",
 		"MaxCooldown",
+		"MaxHealth",
 		"MoveSpeed",
 		"Player",
 		"StateMachine",
@@ -81,6 +84,7 @@ public static class GameComponentsLookup
 		"Rotation",
 		"Transform",
 		"Velocity",
+		"HealthAddedListener",
 		"LinkRemovedListener",
 		"LocalPositionAddedListener",
 		"PositionAddedListener",
@@ -105,6 +109,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.LayerMaskComponent),
 		typeof(Ecs.Game.Components.LifeTimeComponent),
 		typeof(Ecs.Game.Components.MaxCooldownComponent),
+		typeof(Ecs.Game.Components.MaxHealthComponent),
 		typeof(Ecs.Game.Components.MoveSpeedComponent),
 		typeof(Ecs.Game.Components.PlayerComponent),
 		typeof(Ecs.Game.Components.StateMachineComponent),
@@ -119,6 +124,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Core.Components.RotationComponent),
 		typeof(Ecs.Game.Core.Components.TransformComponent),
 		typeof(Ecs.Game.Core.Components.VelocityComponent),
+		typeof(HealthAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
 		typeof(LocalPositionAddedListenerComponent),
 		typeof(PositionAddedListenerComponent),
@@ -143,25 +149,27 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.LayerMaskComponent), 12 },
 		{ typeof(Ecs.Game.Components.LifeTimeComponent), 13 },
 		{ typeof(Ecs.Game.Components.MaxCooldownComponent), 14 },
-		{ typeof(Ecs.Game.Components.MoveSpeedComponent), 15 },
-		{ typeof(Ecs.Game.Components.PlayerComponent), 16 },
-		{ typeof(Ecs.Game.Components.StateMachineComponent), 17 },
-		{ typeof(Ecs.Game.Components.TargetComponent), 18 },
-		{ typeof(Ecs.Game.Core.Components.CameraComponent), 19 },
-		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 20 },
-		{ typeof(Ecs.Game.Core.Components.LinkComponent), 21 },
-		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 22 },
-		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 23 },
-		{ typeof(Ecs.Game.Core.Components.PositionComponent), 24 },
-		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 25 },
-		{ typeof(Ecs.Game.Core.Components.RotationComponent), 26 },
-		{ typeof(Ecs.Game.Core.Components.TransformComponent), 27 },
-		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 28 },
-		{ typeof(LinkRemovedListenerComponent), 29 },
-		{ typeof(LocalPositionAddedListenerComponent), 30 },
-		{ typeof(PositionAddedListenerComponent), 31 },
-		{ typeof(RotationAddedListenerComponent), 32 },
-		{ typeof(VelocityAddedListenerComponent), 33 }
+		{ typeof(Ecs.Game.Components.MaxHealthComponent), 15 },
+		{ typeof(Ecs.Game.Components.MoveSpeedComponent), 16 },
+		{ typeof(Ecs.Game.Components.PlayerComponent), 17 },
+		{ typeof(Ecs.Game.Components.StateMachineComponent), 18 },
+		{ typeof(Ecs.Game.Components.TargetComponent), 19 },
+		{ typeof(Ecs.Game.Core.Components.CameraComponent), 20 },
+		{ typeof(Ecs.Game.Core.Components.InstantiateComponent), 21 },
+		{ typeof(Ecs.Game.Core.Components.LinkComponent), 22 },
+		{ typeof(Ecs.Game.Core.Components.LocalPositionComponent), 23 },
+		{ typeof(Ecs.Game.Core.Components.LookDirectionComponent), 24 },
+		{ typeof(Ecs.Game.Core.Components.PositionComponent), 25 },
+		{ typeof(Ecs.Game.Core.Components.PrefabComponent), 26 },
+		{ typeof(Ecs.Game.Core.Components.RotationComponent), 27 },
+		{ typeof(Ecs.Game.Core.Components.TransformComponent), 28 },
+		{ typeof(Ecs.Game.Core.Components.VelocityComponent), 29 },
+		{ typeof(HealthAddedListenerComponent), 30 },
+		{ typeof(LinkRemovedListenerComponent), 31 },
+		{ typeof(LocalPositionAddedListenerComponent), 32 },
+		{ typeof(PositionAddedListenerComponent), 33 },
+		{ typeof(RotationAddedListenerComponent), 34 },
+		{ typeof(VelocityAddedListenerComponent), 35 }
 	};
 
 	/// <summary>

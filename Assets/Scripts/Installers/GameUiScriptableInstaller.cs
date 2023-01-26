@@ -1,5 +1,6 @@
 ﻿using Ui.Hud;
 using Ui.Hud.EnemyCounter;
+using Ui.Hud.HealthDrawer;
 using UnityEngine;
 using VContainer;
 using VContainer.Extensions;
@@ -16,6 +17,7 @@ namespace Installers
 		[SerializeField] private Canvas _canvas;
 		[Space(10)]
 		[SerializeField] private EnemyCounterView _counterView;
+		[SerializeField] private HealthDrawerView _healthDrawerView;
 		
 		public override void Install(IContainerBuilder builder)
 		{
@@ -30,6 +32,7 @@ namespace Installers
 		private void RegisterUiViews(IContainerBuilder builder, Canvas canvas)
 		{
 			builder.RegisterUiView<EnemyCounterController, EnemyCounterView>(_counterView, canvas.transform);
+			builder.RegisterUiView<HealthDrawerController, HealthDrawerView>(_healthDrawerView, canvas.transform);
 		}
 		
 		private void ConfigureWindows(IContainerBuilder builder)

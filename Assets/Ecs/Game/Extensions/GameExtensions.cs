@@ -17,6 +17,7 @@ namespace Ecs.Game.Extensions
             entity.IsPlayer = true;
             entity.AddMoveSpeed(playerModel.MoveSpeed);
             entity.AddHealth(playerModel.Health);
+            entity.AddMaxHealth(playerModel.Health);
             entity.AddDefence(playerModel.Defence);
             entity.AddDamage(playerModel.Damage);
             entity.AddLayerMask(playerModel.BulletLayerMask);
@@ -82,6 +83,7 @@ namespace Ecs.Game.Extensions
             entity.AddMoveSpeed(enemyModel.MoveSpeed);
             entity.AddLayerMask(enemyModel.BulletLayerMask);
             entity.AddHealth(enemyModel.Health);
+            entity.AddMaxHealth(enemyModel.Health);
             entity.AddDefence(enemyModel.Defence);
             entity.AddDamage(enemyModel.Damage);
             entity.AddCooldown(0);

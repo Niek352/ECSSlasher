@@ -1,4 +1,5 @@
 ﻿using Ui.Hud.EnemyCounter;
+using Ui.Hud.HealthDrawer;
 using VContainer;
 using VContainerUi.Abstraction;
 
@@ -15,6 +16,7 @@ namespace Ui.Hud
 		protected override void AddControllers()
 		{
 			AddController<EnemyCounterController>();	
+			AddController<HealthDrawerController>();	
 		}
 	}
 }

@@ -35,7 +35,7 @@ namespace Ecs.Action.Systems
 		private void ProcessAttack(GameEntity source, GameEntity target)
 		{
 			target.Health.Value -= source.Damage.Value * (1 - target.Defence.Value);
-			target.Health.Value = Mathf.Clamp(target.Health.Value, 0, 9999);
+			target.ReplaceHealth(Mathf.Clamp(target.Health.Value, 0, target.MaxHealth.Value)); 
 
 			if (target.Health.Value == 0 && !target.IsDead)
 			{

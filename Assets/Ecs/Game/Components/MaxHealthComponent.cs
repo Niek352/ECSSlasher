@@ -3,8 +3,7 @@
 namespace Ecs.Game.Components
 {
 	[Game]
-	[Event(EventTarget.Self)]
-	public class HealthComponent : IComponent
+	public class MaxHealthComponent : IComponent
 	{
 		public float Value;
 	}

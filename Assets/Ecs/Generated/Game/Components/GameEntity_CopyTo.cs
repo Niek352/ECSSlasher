@@ -58,6 +58,10 @@ public partial class GameEntity
 		{
 			IsInstantiate = true;
 		}
+		else if (component is Ecs.Game.Components.MaxHealthComponent MaxHealth)
+		{
+			CopyMaxHealthTo(MaxHealth);
+		}
 		else if (component is Ecs.Game.Components.CharacterIdComponent CharacterId)
 		{
 			CopyCharacterIdTo(CharacterId);
@@ -153,6 +157,10 @@ public partial class GameEntity
 		else if (component is LinkRemovedListenerComponent LinkRemovedListener)
 		{
 			CopyLinkRemovedListenerTo(LinkRemovedListener);
+		}
+		else if (component is HealthAddedListenerComponent HealthAddedListener)
+		{
+			CopyHealthAddedListenerTo(HealthAddedListener);
 		}
 		#endif
 	}

@@ -13,7 +13,6 @@ namespace Ecs.Views.Linkable.Impl
 		
 		public void ApplyHit(ref RaycastHit hit, GameEntity bullet)
 		{
-			Debug.Log("OnHit");
 		}
 		public GameEntity GetEntity()
 			=> Self;
